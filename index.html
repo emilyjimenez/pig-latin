@@ -7,7 +7,7 @@
       <link href="css/styles.css" rel="stylesheet" type="text/css">
       <script src="js/jQuery.js"></script>
       <script src="js/scripts.js"></script>
-      <title>Leap year detector</title>
+      <title>Pig Latin Translator</title>
     </head>
     <body>
       <div class="container">
@@ -15,17 +15,19 @@
 
         <form id="pigform">
           <div class="form-group">
-            <label for="sentence">Enter a sentence to translate into pig latin:</label>
-          <div class="form-group">
-            <input id="inputForm" type="text">
+            <label for="input">Enter a sentence to translate into pig latin:</label>
+            <input type="text" id="inputForm">
           </div>
-        </div>
-          <button type="submit" class="btn btn-success">Find out!</button>
+          <button type="submit" class="btn btn-success">Translate!</button>
         </form>
 
         <div id="result">
-
         </div>
+
+        <div id="notSentence">
+          DOES NOT COMPUTE. Rewrite the sentence without numbers please.
+        </div>
+
       </div>
     </body>
   </html>
