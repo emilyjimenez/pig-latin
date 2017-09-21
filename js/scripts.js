@@ -11,22 +11,24 @@ function pigLatin(sentence) {
     } else if (string[0].match(/[aeiou]/gi)) {
       sentence = string + "way";
       arrayFinal.push(sentence);
-      // if consonant then consonant plus "ay"
     } else {
       for (var i = 0; i < string.length; i++) {
         console.log(i);
-        if (!string[0].match(/[aeiou]/gi)) {
+        // if "qu" then "qu" at end plus "ay"
+        if (string[0].match(/(q)/gi)) {
+          console.log(i);
+          string = string.slice(2, string.length) + string.charAt(0) +string.charAt(1);
+          sentence = string + "ay";
+          console.log(string);
+          console.log(sentence);
+        }
+        // if consonant then consonant plus "ay"
+        else if (!string[0].match(/[aeiou]/gi)) {
           string = string.slice(1, string.length) + string.charAt(0);
           sentence = string + "ay";
           console.log(string);
           console.log(sentence);
-          // if "qu" then "qu" at end plus "ay"
-          } else if (string[0].match(/(qu)/gi)) {
-            string = string.slice(1, string.length) + string.charAt(0);
-            sentence = string + "ay";
-            console.log(string);
-            console.log(sentence);
-          }
+        }
         }
       }
     arrayFinal.push(sentence);
@@ -36,9 +38,8 @@ function pigLatin(sentence) {
 // UI logic below:
 $(document).ready(function() {
   $("form#pigform").submit(function(event) {
-      event.preventDefault();
-      var sentence = $("#inputForm").val();
-
-      $("#result").text(pigLatin(sentence));
-    });
+    event.preventDefault();
+    var sentence = $("#inputForm").val();
+    $("#result").text(pigLatin(sentence));
   });
+});
