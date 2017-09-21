@@ -1,6 +1,8 @@
+
 function pigLatin(sentence) {
   var arrayInitial = sentence.split(" ");
   var arrayFinal = [];
+  var sentence;
   arrayInitial.forEach(function(string) {
     // Alert: dont use numbers
     if (string.match(/[0-9]/g)) {
@@ -10,16 +12,26 @@ function pigLatin(sentence) {
       sentence = string + "way";
       arrayFinal.push(sentence);
       // if consonent + "ay plus consonentant"
-    } else if (!string[0].match(/[aeiou]/gi)) {
-      sentence = string.slice(1, string.length) + string.charAt(0) + "ay";
-      arrayFinal.push(sentence);
+    } else {
+      for (var i = 0; i < string.length; i++) {
+        console.log(i);
+        if (!string[0].match(/[aeiou]/gi)) {
+         string = string.slice(1, string.length) + string.charAt(0);
+         sentence = string + "ay";
+         console.log(string);
+         console.log(sentence);
 
-    } else if (!string[0].match(/[aeiou]/gi) && (!string[0].match(/[aeiou]/gi))) {
-        sentence = string.slice(2, string.length) + string.charAt(1) + "ay";
-        arrayFinal.push(sentence);
+
+
+
+      }
     }
-  })
+    arrayFinal.push(sentence);
+  }
+  });
+
   return arrayFinal;
+
   }
 
 // jQuery UI logic is below
